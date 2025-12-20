@@ -54,6 +54,22 @@ function formatDate(dateString) {
     });
 }
 
+function formatDateTime(dateString) {
+    if (!dateString) return 'unknown';
+    const date = new Date(dateString);
+    const dateStr = date.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    });
+    const timeStr = date.toLocaleTimeString('en-US', {
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false
+    });
+    return dateStr + ' at ' + timeStr;
+}
+
 async function loadForecast() {
     try {
         const response = await fetch('forecasts.json');
@@ -61,7 +77,8 @@ async function loadForecast() {
 
         document.getElementById('nowcast').textContent = formatMoney(data.nowcast);
         document.getElementById('trend').textContent = formatMoney(data.trend);
-        document.getElementById('lastUpdated').textContent = 'Last update: ' + formatDate(data.last_updated);
+        document.getElementById('lastUpdated').textContent = 'Model update: ' + formatDate(data.last_updated);
+        document.getElementById('nowcastUpdated').textContent = 'Nowcast update: ' + formatDateTime(data.nowcast_updated);
     } catch (error) {
         console.error('Error loading forecast:', error);
     }
@@ -79,23 +96,24 @@ window.addEventListener('DOMContentLoaded', loadForecast);
 
 <center>
 <h3>Nowcast</h3>
-<div class="price"><b id="nowcast">$96,247</b></div>
+<div class="price"><b id="nowcast">$,</b></div>
 </center>
 
 <center>
 <h3>Trend</h3>
-<div class="price"><b id="trend">$94,182</b></div>
-<div class="subtext">(disregards information from the last 90 days)</div>
+<div class="price"><b id="trend">$</b></div>
+<div class="subtext">(does not account for recent information)</div>
 </center>
 
-<center>
+<!-- <center> -->
 <hr>
-<p class="footer"><i id="lastUpdated">Last update: December 18, 2024</i></p>
-<p class="footer">
+<p class="footer"><i id="lastUpdated">Model update: unknown</i> <br/>
+<i id="nowcastUpdated">Nowcast update: unknown</i>
+<br/><br/>
 Not for public consumption. Not investment advice.<br>
-No interpretation of numbers is claimed.
+No interpretation of guidance numbers is claimed.
 </p>
-</center>
+<!-- </center> -->
 
 </body>
 </html>
