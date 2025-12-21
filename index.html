@@ -75,8 +75,8 @@ async function loadForecast() {
 
         document.getElementById('nowcast').textContent = formatMoney(data.nowcast);
         document.getElementById('trend').textContent = formatMoney(data.trend);
-        document.getElementById('lastUpdated').textContent = 'Model update: ' + formatDate(data.last_updated);
-        document.getElementById('nowcastUpdated').textContent = 'Nowcast update: ' + formatDateTime(data.nowcast_updated);
+        document.getElementById('nowcastUpdated').textContent = 'Updated: ' + formatDateTime(data.nowcast_updated);
+        document.getElementById('currentRegimeStart').textContent = 'Regime model frozen in ' + formatDate(data.current_regime_start);
     } catch (error) {
         console.error('Error loading forecast:', error);
     }
@@ -108,10 +108,11 @@ window.addEventListener('DOMContentLoaded', loadForecast);
 <center>
 
 <!-- footer section. make the text just a little smaller than the div class subtext text-->
+<div class="footer">
 <br/><br/>
 Not for public consumption. Not investment advice.<br>
 No interpretation of guidance numbers is claimed.
-</p>
+</div>
 </center>
 
 </body>
