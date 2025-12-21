@@ -95,23 +95,24 @@ window.addEventListener('DOMContentLoaded', loadForecast);
 <center>
 <h3>Nowcast</h3>
 <div class="price"><b id="nowcast">$,</b></div>
+<div class="subtext"><i id="nowcastUpdated">Updated: <!-- date--></i>
 </center>
 
 <center>
-<h3>Trend</h3>
+<h3>Regime trend</h3>
 <div class="price"><b id="trend">$</b></div>
-<div class="subtext">(does not account for recent information)</div>
+<div class="subtext"><i id="currentRegimeStart">Regime model frozen in <!--date--></i></div>
 </center>
 
-<!-- <center> -->
 <hr>
-<p class="footer"><i id="lastUpdated">Model update: unknown</i> <br/>
-<i id="nowcastUpdated">Nowcast update: unknown</i>
+<center>
+
+<!-- footer section. make the text just a little smaller than the div class subtext text-->
 <br/><br/>
 Not for public consumption. Not investment advice.<br>
 No interpretation of guidance numbers is claimed.
 </p>
-<!-- </center> -->
+</center>
 
 </body>
 </html>
