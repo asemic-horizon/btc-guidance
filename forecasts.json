@@ -1,7 +1,8 @@
 {
-  "trend": 88221.69408907252,
-  "nowcast": 87688.17902740678,
+  "trend": 88923.91127484715,
+  "nowcast": 87824.5907942623,
   "last_updated": "2025-12-27T00:00:00",
-  "nowcast_updated": "2025-12-29T23:20:33.060957",
-  "current_regime_start": "2025-11-28 00:00:00"
+  "nowcast_updated": "2025-12-29T23:26:30.584267",
+  "current_regime_start": "2025-11-28 00:00:00",
+  "current_regime_duration_days": 29
 }
