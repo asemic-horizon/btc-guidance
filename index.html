@@ -77,6 +77,20 @@ async function loadForecast() {
         document.getElementById('trend').textContent = formatMoney(data.trend);
         document.getElementById('nowcastUpdated').textContent = 'Updated: ' + formatDateTime(data.nowcast_updated);
         document.getElementById('currentRegimeStart').textContent = 'Regime model frozen in ' + formatDate(data.current_regime_start);
+
+        // Check if nowcast is stale (older than 1 hour)
+        if (data.nowcast_updated) {
+            const now = new Date();
+            const updated = new Date(data.nowcast_updated);
+            const hoursElapsed = (now - updated) / (1000 * 60 * 60);
+
+            if (hoursElapsed >= 1) {
+                const hoursOld = Math.floor(hoursElapsed);
+                const warning = document.getElementById('staleWarning');
+                warning.textContent = 'stale forecast, over ' + hoursOld + ' hours old';
+                warning.style.display = 'block';
+            }
+        }
     } catch (error) {
         console.error('Error loading forecast:', error);
     }
@@ -93,14 +107,15 @@ setTimeout(() => {
 <body>
 
 <center>
-<h1>BTC Price Guidance</h1>
+<h1>DOGE Price Guidance</h1>
 <hr>
 </center>
 
 <center>
 <h3>Nowcast</h3>
 <div class="price"><b id="nowcast">$,</b></div>
-<div class="subtext"><i id="nowcastUpdated">Updated: <!-- date--></i>
+<div class="subtext"><i id="nowcastUpdated">Updated: <!-- date--></i></div>
+<div class="subtext" id="staleWarning" style="color: red; display: none;"></div>
 </center>
 
 <center>
