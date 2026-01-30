@@ -1,10 +1,10 @@
 {
-  "trend": 91009.76568458315,
-  "nowcast": 86364.23253491208,
-  "nowcast_ci": 1715.77380403415,
-  "trend_ci": 2735.8327294992705,
+  "trend": 91273.55698117155,
+  "nowcast": 86578.00929699285,
+  "nowcast_ci": 1665.5415180338605,
+  "trend_ci": 2930.466817968765,
   "last_updated": "2026-01-30T00:00:00",
-  "nowcast_updated": "2026-01-30T12:11:58.009649",
+  "nowcast_updated": "2026-01-30T12:19:20.323653",
   "current_regime_start": "2026-01-26 00:00:00",
   "current_regime_duration_days": 4
 }
